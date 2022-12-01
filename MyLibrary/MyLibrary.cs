@@ -1,4 +1,5 @@
-﻿using MyAttribute;
+﻿using System.Runtime.CompilerServices;
+using MyAttribute;
 namespace MyLibrary
 {
     public class Foo
@@ -7,22 +8,17 @@ namespace MyLibrary
         [ExecuteMe("How ")]
         [ExecuteMe( "Are ")]
         [ExecuteMe( "You?")]
-        public void MyPrint(string msg)
-        {
-            Console.Write(msg);
-        }
+        public void MyPrint() { Console.WriteLine("This Is MyPrint!"); }
 
-        [ExecuteMe("get", "sum")]
-        public void MySum(int n1, int n2)
-        {
-            Console.WriteLine(n1+n2);
-        }
+        [ExecuteMe("Let's try ") , ExecuteMe("Adding more!")]
+        public void MyPrintWithMoreAttributes() { Console.WriteLine("Yes, more attributes works!");}
 
-        [ExecuteMe("get", "diff")]
-        public void MySub(int n1, int n2)
-        {
-            Console.WriteLine(n1 - n2);
-        }
+        [ExecuteMe("What about ints?"), ExecuteMe(12), ExecuteMe(13)]
+        public void MyPrintWithMultipleTypes() { Console.WriteLine("They can even be int!");}
+
+        [ExecuteMe("Various Methods")]
+        public void MyPrintX1() {Console.WriteLine("Now i try more calls");}
+        public void MyPrintX2() {Console.WriteLine("Works fine!");}
     }
 
 }
